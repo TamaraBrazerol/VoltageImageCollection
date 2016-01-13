@@ -1,22 +1,25 @@
 //
-//  SecondViewController.m
+//  FilteredListViewController.m
 //  VoltageImageCollection
 //
 //  Created by Tamara Brazerol on 13/01/16.
 //  Copyright © 2016 Tamara Brazerol. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "FilteredListViewController.h"
 
-@interface SecondViewController ()
+
+@interface FilteredListViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation FilteredListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.title = @"FilteredList";
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {

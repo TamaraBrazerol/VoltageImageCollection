@@ -9,14 +9,15 @@
 /* Begin PBXBuildFile section */
 		322B6F1F1C4665E1001774AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F1E1C4665E1001774AD /* main.m */; };
 		322B6F221C4665E1001774AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F211C4665E1001774AD /* AppDelegate.m */; };
-		322B6F251C4665E1001774AD /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F241C4665E1001774AD /* FirstViewController.m */; };
-		322B6F281C4665E1001774AD /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F271C4665E1001774AD /* SecondViewController.m */; };
-		322B6F2B1C4665E1001774AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 322B6F291C4665E1001774AD /* Main.storyboard */; };
+		322B6F251C4665E1001774AD /* AppListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F241C4665E1001774AD /* AppListViewController.m */; };
+		322B6F281C4665E1001774AD /* FilteredListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F271C4665E1001774AD /* FilteredListViewController.m */; };
 		322B6F2D1C4665E1001774AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 322B6F2C1C4665E1001774AD /* Assets.xcassets */; };
-		322B6F301C4665E1001774AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 322B6F2E1C4665E1001774AD /* LaunchScreen.storyboard */; };
 		322B6F3B1C4665E1001774AD /* VoltageImageCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F3A1C4665E1001774AD /* VoltageImageCollectionTests.m */; };
 		322B6F461C4665E1001774AD /* VoltageImageCollectionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F451C4665E1001774AD /* VoltageImageCollectionUITests.m */; };
-		322B6F551C466C42001774AD /* buildScripts in Resources */ = {isa = PBXBuildFile; fileRef = 322B6F541C466C42001774AD /* buildScripts */; };
+		322B6F5D1C467871001774AD /* NSMutableDictionary+ImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F5C1C467871001774AD /* NSMutableDictionary+ImageData.m */; };
+		322B6F601C467DD2001774AD /* NSMutableDictionary+AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F5F1C467DD2001774AD /* NSMutableDictionary+AppData.m */; };
+		322B6F631C467EAD001774AD /* NSMutableDictionary+TransferCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F621C467EAD001774AD /* NSMutableDictionary+TransferCode.m */; };
+		322B6F691C4694E4001774AD /* NSMutableDictionary+Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F681C4694E4001774AD /* NSMutableDictionary+Tag.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,13 +42,11 @@
 		322B6F1E1C4665E1001774AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		322B6F201C4665E1001774AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		322B6F211C4665E1001774AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		322B6F231C4665E1001774AD /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		322B6F241C4665E1001774AD /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		322B6F261C4665E1001774AD /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		322B6F271C4665E1001774AD /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		322B6F2A1C4665E1001774AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		322B6F231C4665E1001774AD /* AppListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppListViewController.h; sourceTree = "<group>"; };
+		322B6F241C4665E1001774AD /* AppListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppListViewController.m; sourceTree = "<group>"; };
+		322B6F261C4665E1001774AD /* FilteredListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilteredListViewController.h; sourceTree = "<group>"; };
+		322B6F271C4665E1001774AD /* FilteredListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilteredListViewController.m; sourceTree = "<group>"; };
 		322B6F2C1C4665E1001774AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		322B6F2F1C4665E1001774AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		322B6F311C4665E1001774AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		322B6F361C4665E1001774AD /* VoltageImageCollectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoltageImageCollectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		322B6F3A1C4665E1001774AD /* VoltageImageCollectionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoltageImageCollectionTests.m; sourceTree = "<group>"; };
@@ -56,6 +55,15 @@
 		322B6F451C4665E1001774AD /* VoltageImageCollectionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoltageImageCollectionUITests.m; sourceTree = "<group>"; };
 		322B6F471C4665E1001774AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		322B6F541C466C42001774AD /* buildScripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = buildScripts; sourceTree = "<group>"; };
+		322B6F571C467549001774AD /* notes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = notes; sourceTree = "<group>"; };
+		322B6F5B1C467871001774AD /* NSMutableDictionary+ImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+ImageData.h"; sourceTree = "<group>"; };
+		322B6F5C1C467871001774AD /* NSMutableDictionary+ImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+ImageData.m"; sourceTree = "<group>"; };
+		322B6F5E1C467DD2001774AD /* NSMutableDictionary+AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+AppData.h"; sourceTree = "<group>"; };
+		322B6F5F1C467DD2001774AD /* NSMutableDictionary+AppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+AppData.m"; sourceTree = "<group>"; };
+		322B6F611C467EAD001774AD /* NSMutableDictionary+TransferCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+TransferCode.h"; sourceTree = "<group>"; };
+		322B6F621C467EAD001774AD /* NSMutableDictionary+TransferCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+TransferCode.m"; sourceTree = "<group>"; };
+		322B6F671C4694E4001774AD /* NSMutableDictionary+Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Tag.h"; sourceTree = "<group>"; };
+		322B6F681C4694E4001774AD /* NSMutableDictionary+Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Tag.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,7 @@
 		322B6F111C4665E0001774AD = {
 			isa = PBXGroup;
 			children = (
+				322B6F571C467549001774AD /* notes */,
 				322B6F541C466C42001774AD /* buildScripts */,
 				322B6F1C1C4665E1001774AD /* VoltageImageCollection */,
 				322B6F391C4665E1001774AD /* VoltageImageCollectionTests */,
@@ -109,14 +118,10 @@
 			children = (
 				322B6F201C4665E1001774AD /* AppDelegate.h */,
 				322B6F211C4665E1001774AD /* AppDelegate.m */,
-				322B6F231C4665E1001774AD /* FirstViewController.h */,
-				322B6F241C4665E1001774AD /* FirstViewController.m */,
-				322B6F261C4665E1001774AD /* SecondViewController.h */,
-				322B6F271C4665E1001774AD /* SecondViewController.m */,
-				322B6F291C4665E1001774AD /* Main.storyboard */,
 				322B6F2C1C4665E1001774AD /* Assets.xcassets */,
-				322B6F2E1C4665E1001774AD /* LaunchScreen.storyboard */,
 				322B6F311C4665E1001774AD /* Info.plist */,
+				322B6F5A1C4677FD001774AD /* ViewControllers */,
+				322B6F591C4677E6001774AD /* Data */,
 				322B6F1D1C4665E1001774AD /* Supporting Files */,
 			);
 			path = VoltageImageCollection;
@@ -146,6 +151,32 @@
 				322B6F471C4665E1001774AD /* Info.plist */,
 			);
 			path = VoltageImageCollectionUITests;
+			sourceTree = "<group>";
+		};
+		322B6F591C4677E6001774AD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				322B6F5B1C467871001774AD /* NSMutableDictionary+ImageData.h */,
+				322B6F5C1C467871001774AD /* NSMutableDictionary+ImageData.m */,
+				322B6F5E1C467DD2001774AD /* NSMutableDictionary+AppData.h */,
+				322B6F5F1C467DD2001774AD /* NSMutableDictionary+AppData.m */,
+				322B6F611C467EAD001774AD /* NSMutableDictionary+TransferCode.h */,
+				322B6F621C467EAD001774AD /* NSMutableDictionary+TransferCode.m */,
+				322B6F671C4694E4001774AD /* NSMutableDictionary+Tag.h */,
+				322B6F681C4694E4001774AD /* NSMutableDictionary+Tag.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		322B6F5A1C4677FD001774AD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				322B6F231C4665E1001774AD /* AppListViewController.h */,
+				322B6F241C4665E1001774AD /* AppListViewController.m */,
+				322B6F261C4665E1001774AD /* FilteredListViewController.h */,
+				322B6F271C4665E1001774AD /* FilteredListViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,10 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				322B6F551C466C42001774AD /* buildScripts in Resources */,
-				322B6F301C4665E1001774AD /* LaunchScreen.storyboard in Resources */,
 				322B6F2D1C4665E1001774AD /* Assets.xcassets in Resources */,
-				322B6F2B1C4665E1001774AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,9 +324,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				322B6F281C4665E1001774AD /* SecondViewController.m in Sources */,
+				322B6F281C4665E1001774AD /* FilteredListViewController.m in Sources */,
 				322B6F221C4665E1001774AD /* AppDelegate.m in Sources */,
-				322B6F251C4665E1001774AD /* FirstViewController.m in Sources */,
+				322B6F251C4665E1001774AD /* AppListViewController.m in Sources */,
+				322B6F601C467DD2001774AD /* NSMutableDictionary+AppData.m in Sources */,
+				322B6F691C4694E4001774AD /* NSMutableDictionary+Tag.m in Sources */,
+				322B6F631C467EAD001774AD /* NSMutableDictionary+TransferCode.m in Sources */,
+				322B6F5D1C467871001774AD /* NSMutableDictionary+ImageData.m in Sources */,
 				322B6F1F1C4665E1001774AD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,25 +365,6 @@
 			targetProxy = 322B6F421C4665E1001774AD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		322B6F291C4665E1001774AD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				322B6F2A1C4665E1001774AD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		322B6F2E1C4665E1001774AD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				322B6F2F1C4665E1001774AD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		322B6F481C4665E1001774AD /* Debug */ = {

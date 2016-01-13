@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  FilteredListViewController.h
 //  VoltageImageCollection
 //
 //  Created by Tamara Brazerol on 13/01/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface FilteredListViewController : UIViewController
 
 
 @end

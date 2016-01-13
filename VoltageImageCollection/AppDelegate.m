@@ -7,16 +7,44 @@
 //
 
 #import "AppDelegate.h"
+#import "AppListViewController.h"
+#import "FilteredListViewController.h"
 
 @interface AppDelegate ()
-
+@property UITabBarController *tabBarController;
 @end
 
 @implementation AppDelegate
 
 
+- (NSArray *)initializeTabBarItems
+{
+    /* Initialize view controllers */
+    AppListViewController * viewController1 = [[AppListViewController alloc] init];
+    FilteredListViewController * viewController2 = [[FilteredListViewController alloc] init];
+    
+    
+    /* Initialize navigation controllers */
+    UINavigationController * navigationController1 = [[UINavigationController alloc] initWithRootViewController:viewController1];
+    UINavigationController * navigationController2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
+  
+    return @[navigationController1, navigationController2];
+}
+
+#pragma mark - UIApplicationDelegate
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    /* Initialize window view */
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    /* Initialize tab bar controller, add tabs controllers */
+    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.viewControllers = [self initializeTabBarItems];
+    self.window.rootViewController = self.tabBarController;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
