@@ -16,6 +16,7 @@
 		322B6F301C4665E1001774AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 322B6F2E1C4665E1001774AD /* LaunchScreen.storyboard */; };
 		322B6F3B1C4665E1001774AD /* VoltageImageCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F3A1C4665E1001774AD /* VoltageImageCollectionTests.m */; };
 		322B6F461C4665E1001774AD /* VoltageImageCollectionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F451C4665E1001774AD /* VoltageImageCollectionUITests.m */; };
+		322B6F551C466C42001774AD /* buildScripts in Resources */ = {isa = PBXBuildFile; fileRef = 322B6F541C466C42001774AD /* buildScripts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		322B6F411C4665E1001774AD /* VoltageImageCollectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoltageImageCollectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		322B6F451C4665E1001774AD /* VoltageImageCollectionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoltageImageCollectionUITests.m; sourceTree = "<group>"; };
 		322B6F471C4665E1001774AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		322B6F541C466C42001774AD /* buildScripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = buildScripts; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		322B6F111C4665E0001774AD = {
 			isa = PBXGroup;
 			children = (
+				322B6F541C466C42001774AD /* buildScripts */,
 				322B6F1C1C4665E1001774AD /* VoltageImageCollection */,
 				322B6F391C4665E1001774AD /* VoltageImageCollectionTests */,
 				322B6F441C4665E1001774AD /* VoltageImageCollectionUITests */,
@@ -155,6 +158,7 @@
 				322B6F161C4665E0001774AD /* Sources */,
 				322B6F171C4665E0001774AD /* Frameworks */,
 				322B6F181C4665E0001774AD /* Resources */,
+				322B6F561C466CB8001774AD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -248,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				322B6F551C466C42001774AD /* buildScripts in Resources */,
 				322B6F301C4665E1001774AD /* LaunchScreen.storyboard in Resources */,
 				322B6F2D1C4665E1001774AD /* Assets.xcassets in Resources */,
 				322B6F2B1C4665E1001774AD /* Main.storyboard in Resources */,
@@ -269,6 +274,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		322B6F561C466CB8001774AD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./buildScripts/xcode-git-version.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		322B6F161C4665E0001774AD /* Sources */ = {
@@ -504,6 +525,7 @@
 				322B6F4C1C4665E1001774AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		322B6F4D1C4665E1001774AD /* Build configuration list for PBXNativeTarget "VoltageImageCollectionTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +534,7 @@
 				322B6F4F1C4665E1001774AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		322B6F501C4665E1001774AD /* Build configuration list for PBXNativeTarget "VoltageImageCollectionUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +543,7 @@
 				322B6F521C4665E1001774AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
