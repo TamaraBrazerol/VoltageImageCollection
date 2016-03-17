@@ -10,20 +10,6 @@
 
 @implementation ImageData
 
-#pragma mark - R/W to PList
-
-+(id)createWithDictionary:(NSDictionary*)dict {
-    if (dict) {
-        ImageData *self = [[ImageData alloc]init];
-        //TODO: add values from dict
-    }
-    return nil;
-}
-
--(NSDictionary*)dictionary {
-
-}
-
 #pragma mark - URLs
 
 -(NSURL*)localURL {
@@ -36,6 +22,38 @@
     return nil;
 }
 
+#pragma mark - DictionaryData
+#pragma mark Constants
+const NSString *IMAGEIDKEY = @"ImageID";
+const NSString *TAGIDSKEY = @"TagIDs";
+const NSString *ISSYNCEDKEY = @"IsSynced";
 
+
++(id)createWithDictionary:(NSDictionary*)dict {
+    ImageData *imageData = [[ImageData alloc]init];
+    [imageData setValuesFromDictionary:dict];
+    return imageData;
+}
+
+-(void)setValuesFromDictionary:(NSDictionary*)dict {
+    if (dict) {
+        if ([[dict objectForKey:IMAGEIDKEY]isKindOfClass:NSNumber.class]) {
+            self.imageID = [dict objectForKey:IMAGEIDKEY];
+        }
+        if ([[dict objectForKey:TAGIDSKEY]isKindOfClass:NSArray.class]) {
+            self.tagIDs = [dict objectForKey:TAGIDSKEY];
+        }
+        if ([[dict objectForKey:ISSYNCEDKEY]isKindOfClass:NSNumber.class]) {
+            self.isSynced = [dict objectForKey:ISSYNCEDKEY];
+        }
+    }
+}
+
+-(NSDictionary*)dictionary {
+    NSNumber *safeImageId = (self.imageID) ? self.imageID : @0;
+    NSArray *safeTagArray = (self.tagIDs) ? self.tagIDs : @[];
+    NSNumber *safeIsSynced = (self.isSynced) ? self.isSynced : @0;
+    return @{safeImageId:IMAGEIDKEY, safeTagArray:TAGIDSKEY, safeIsSynced:ISSYNCEDKEY};
+}
 
 @end

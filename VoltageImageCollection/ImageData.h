@@ -7,17 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DictionaryData.h"
 
 //- res?
 //- file size?
 
-@interface ImageData : NSObject
+@interface ImageData : NSObject <DictionaryData>
+
 @property (weak) NSNumber *imageID;
 @property (weak) NSArray *tagIDs;
 @property (weak) NSNumber *isSynced;
-
-+(id)createWithDictionary:(NSDictionary*)dict;
--(NSDictionary*)dictionary;
 
 -(NSURL*)localURL;
 -(NSURL*)externalURL;

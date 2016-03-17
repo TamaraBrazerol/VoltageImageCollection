@@ -10,7 +10,7 @@
 #import "Tag.h"
 #import "TransferCode.h"
 
-@interface AppData : Tag
+@interface AppData : Tag <DictionaryData>
 
 // The apps tag.id is the app abbreviation (MFW, KBTBB, etc.)
 @property (strong) NSString *appName;

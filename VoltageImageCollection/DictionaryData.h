@@ -6,8 +6,13 @@
 //  Copyright © 2016 Tamara Brazerol. All rights reserved.
 //
 
-#ifndef DictionaryData_h
-#define DictionaryData_h
+#import <Foundation/Foundation.h>
 
+@protocol DictionaryData
++(id)createWithDictionary:(NSDictionary*)dict;
 
-#endif /* DictionaryData_h */
+-(void)setValuesFromDictionary:(NSDictionary*)dict;
+-(NSDictionary*)dictionary;
+@optional
++(BOOL)containsDataForThisClassInDictionary:(NSDictionary*)dict;
+@end

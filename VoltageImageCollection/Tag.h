@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DictionaryData.h"
 
-@interface Tag : NSObject
+@interface Tag : NSObject <DictionaryData>
 
 @property (readonly) NSString *tagID;
 @property (strong) NSString *displayName;
+
+-(NSMutableDictionary*)tagDictionary;
 
 @end

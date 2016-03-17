@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "ImageData.h"
+#import "AppData.h"
+#import "StoryCharacter.h"
+
 @interface DataHandler : NSObject
+
+@property (readonly) NSMutableArray *allImages;
+@property (readonly) NSMutableArray *allTags;
+
 
 @end

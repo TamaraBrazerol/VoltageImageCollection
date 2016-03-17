@@ -8,7 +8,7 @@
 
 #import "Tag.h"
 
-@interface StoryCharacter : Tag
+@interface StoryCharacter : Tag <DictionaryData>
 
 @property (strong) NSString *firstName;
 @property (strong) NSString *lastName;

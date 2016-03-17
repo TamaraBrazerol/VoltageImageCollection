@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DictionaryData.h"
 
-@interface TransferCode : NSObject
+@interface TransferCode : NSObject <DictionaryData>
 
 @property (strong) NSString *appID;
 @property (strong) NSString *subID;
