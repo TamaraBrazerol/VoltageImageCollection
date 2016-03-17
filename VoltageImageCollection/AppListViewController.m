@@ -7,7 +7,7 @@
 //
 
 #import "AppListViewController.h"
-#import "NSMutableDictionary+AppData.h"
+#import "AppData.h"
 
 @interface AppListViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -28,7 +28,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self configureTableView];
     
-    NSMutableDictionary *app1 = [NSMutableDictionary newAppWithName:@"Kissed By The Baddest Bidder"];
+    AppData *app1 = [AppData newAppWithName:@"Kissed By The Baddest Bidder"];
     NSLog(@"%@", app1);
 }
 

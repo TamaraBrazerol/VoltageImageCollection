@@ -1,5 +1,5 @@
 //
-//  NSMutableDictionary+Tag.h
+//  Tag.h
 //  VoltageImageCollection
 //
 //  Created by Tamara Brazerol on 13/01/16.
@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSMutableDictionary (Tag)
+@interface Tag : NSObject
 
-@property (weak) NSString *tagID;
-@property (weak) NSString *displayName;
+@property (readonly) NSString *tagID;
+@property (strong) NSString *displayName;
 
 @end

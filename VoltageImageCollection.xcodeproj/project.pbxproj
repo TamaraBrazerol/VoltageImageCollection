@@ -14,10 +14,13 @@
 		322B6F2D1C4665E1001774AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 322B6F2C1C4665E1001774AD /* Assets.xcassets */; };
 		322B6F3B1C4665E1001774AD /* VoltageImageCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F3A1C4665E1001774AD /* VoltageImageCollectionTests.m */; };
 		322B6F461C4665E1001774AD /* VoltageImageCollectionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F451C4665E1001774AD /* VoltageImageCollectionUITests.m */; };
-		322B6F5D1C467871001774AD /* NSMutableDictionary+ImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F5C1C467871001774AD /* NSMutableDictionary+ImageData.m */; };
-		322B6F601C467DD2001774AD /* NSMutableDictionary+AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F5F1C467DD2001774AD /* NSMutableDictionary+AppData.m */; };
-		322B6F631C467EAD001774AD /* NSMutableDictionary+TransferCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F621C467EAD001774AD /* NSMutableDictionary+TransferCode.m */; };
-		322B6F691C4694E4001774AD /* NSMutableDictionary+Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F681C4694E4001774AD /* NSMutableDictionary+Tag.m */; };
+		322B6F5D1C467871001774AD /* ImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F5C1C467871001774AD /* ImageData.m */; };
+		322B6F601C467DD2001774AD /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F5F1C467DD2001774AD /* AppData.m */; };
+		322B6F631C467EAD001774AD /* TransferCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F621C467EAD001774AD /* TransferCode.m */; };
+		322B6F691C4694E4001774AD /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B6F681C4694E4001774AD /* Tag.m */; };
+		323E5CE01C9AA5E4001C47E0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 323E5CDF1C9AA5E4001C47E0 /* Default-568h@2x.png */; };
+		323E5CE31C9AAE5C001C47E0 /* StoryCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 323E5CE21C9AAE5C001C47E0 /* StoryCharacter.m */; };
+		323E5CE51C9AB589001C47E0 /* Images.plist in Resources */ = {isa = PBXBuildFile; fileRef = 323E5CE41C9AB589001C47E0 /* Images.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,16 +57,20 @@
 		322B6F411C4665E1001774AD /* VoltageImageCollectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoltageImageCollectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		322B6F451C4665E1001774AD /* VoltageImageCollectionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoltageImageCollectionUITests.m; sourceTree = "<group>"; };
 		322B6F471C4665E1001774AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		322B6F541C466C42001774AD /* buildScripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = buildScripts; sourceTree = "<group>"; };
+		322B6F541C466C42001774AD /* buildScripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = buildScripts; path = ../buildScripts; sourceTree = "<group>"; };
 		322B6F571C467549001774AD /* notes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = notes; sourceTree = "<group>"; };
-		322B6F5B1C467871001774AD /* NSMutableDictionary+ImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+ImageData.h"; sourceTree = "<group>"; };
-		322B6F5C1C467871001774AD /* NSMutableDictionary+ImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+ImageData.m"; sourceTree = "<group>"; };
-		322B6F5E1C467DD2001774AD /* NSMutableDictionary+AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+AppData.h"; sourceTree = "<group>"; };
-		322B6F5F1C467DD2001774AD /* NSMutableDictionary+AppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+AppData.m"; sourceTree = "<group>"; };
-		322B6F611C467EAD001774AD /* NSMutableDictionary+TransferCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+TransferCode.h"; sourceTree = "<group>"; };
-		322B6F621C467EAD001774AD /* NSMutableDictionary+TransferCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+TransferCode.m"; sourceTree = "<group>"; };
-		322B6F671C4694E4001774AD /* NSMutableDictionary+Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Tag.h"; sourceTree = "<group>"; };
-		322B6F681C4694E4001774AD /* NSMutableDictionary+Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Tag.m"; sourceTree = "<group>"; };
+		322B6F5B1C467871001774AD /* ImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageData.h; sourceTree = "<group>"; };
+		322B6F5C1C467871001774AD /* ImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageData.m; sourceTree = "<group>"; };
+		322B6F5E1C467DD2001774AD /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppData.h; sourceTree = "<group>"; };
+		322B6F5F1C467DD2001774AD /* AppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppData.m; sourceTree = "<group>"; };
+		322B6F611C467EAD001774AD /* TransferCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransferCode.h; sourceTree = "<group>"; };
+		322B6F621C467EAD001774AD /* TransferCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransferCode.m; sourceTree = "<group>"; };
+		322B6F671C4694E4001774AD /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		322B6F681C4694E4001774AD /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		323E5CDF1C9AA5E4001C47E0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		323E5CE11C9AAE5C001C47E0 /* StoryCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryCharacter.h; sourceTree = "<group>"; };
+		323E5CE21C9AAE5C001C47E0 /* StoryCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryCharacter.m; sourceTree = "<group>"; };
+		323E5CE41C9AB589001C47E0 /* Images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Images.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +101,8 @@
 		322B6F111C4665E0001774AD = {
 			isa = PBXGroup;
 			children = (
+				323E5CDF1C9AA5E4001C47E0 /* Default-568h@2x.png */,
 				322B6F571C467549001774AD /* notes */,
-				322B6F541C466C42001774AD /* buildScripts */,
 				322B6F1C1C4665E1001774AD /* VoltageImageCollection */,
 				322B6F391C4665E1001774AD /* VoltageImageCollectionTests */,
 				322B6F441C4665E1001774AD /* VoltageImageCollectionUITests */,
@@ -119,9 +126,9 @@
 				322B6F201C4665E1001774AD /* AppDelegate.h */,
 				322B6F211C4665E1001774AD /* AppDelegate.m */,
 				322B6F2C1C4665E1001774AD /* Assets.xcassets */,
-				322B6F311C4665E1001774AD /* Info.plist */,
 				322B6F5A1C4677FD001774AD /* ViewControllers */,
 				322B6F591C4677E6001774AD /* Data */,
+				322B6F541C466C42001774AD /* buildScripts */,
 				322B6F1D1C4665E1001774AD /* Supporting Files */,
 			);
 			path = VoltageImageCollection;
@@ -130,6 +137,7 @@
 		322B6F1D1C4665E1001774AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				322B6F311C4665E1001774AD /* Info.plist */,
 				322B6F1E1C4665E1001774AD /* main.m */,
 			);
 			name = "Supporting Files";
@@ -156,14 +164,17 @@
 		322B6F591C4677E6001774AD /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				322B6F5B1C467871001774AD /* NSMutableDictionary+ImageData.h */,
-				322B6F5C1C467871001774AD /* NSMutableDictionary+ImageData.m */,
-				322B6F5E1C467DD2001774AD /* NSMutableDictionary+AppData.h */,
-				322B6F5F1C467DD2001774AD /* NSMutableDictionary+AppData.m */,
-				322B6F611C467EAD001774AD /* NSMutableDictionary+TransferCode.h */,
-				322B6F621C467EAD001774AD /* NSMutableDictionary+TransferCode.m */,
-				322B6F671C4694E4001774AD /* NSMutableDictionary+Tag.h */,
-				322B6F681C4694E4001774AD /* NSMutableDictionary+Tag.m */,
+				322B6F5E1C467DD2001774AD /* AppData.h */,
+				322B6F5F1C467DD2001774AD /* AppData.m */,
+				322B6F5B1C467871001774AD /* ImageData.h */,
+				322B6F5C1C467871001774AD /* ImageData.m */,
+				323E5CE11C9AAE5C001C47E0 /* StoryCharacter.h */,
+				323E5CE21C9AAE5C001C47E0 /* StoryCharacter.m */,
+				322B6F671C4694E4001774AD /* Tag.h */,
+				322B6F681C4694E4001774AD /* Tag.m */,
+				322B6F611C467EAD001774AD /* TransferCode.h */,
+				322B6F621C467EAD001774AD /* TransferCode.m */,
+				323E5CE41C9AB589001C47E0 /* Images.plist */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -283,7 +294,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				323E5CE51C9AB589001C47E0 /* Images.plist in Resources */,
 				322B6F2D1C4665E1001774AD /* Assets.xcassets in Resources */,
+				323E5CE01C9AA5E4001C47E0 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,10 +340,11 @@
 				322B6F281C4665E1001774AD /* FilteredListViewController.m in Sources */,
 				322B6F221C4665E1001774AD /* AppDelegate.m in Sources */,
 				322B6F251C4665E1001774AD /* AppListViewController.m in Sources */,
-				322B6F601C467DD2001774AD /* NSMutableDictionary+AppData.m in Sources */,
-				322B6F691C4694E4001774AD /* NSMutableDictionary+Tag.m in Sources */,
-				322B6F631C467EAD001774AD /* NSMutableDictionary+TransferCode.m in Sources */,
-				322B6F5D1C467871001774AD /* NSMutableDictionary+ImageData.m in Sources */,
+				322B6F601C467DD2001774AD /* AppData.m in Sources */,
+				322B6F691C4694E4001774AD /* Tag.m in Sources */,
+				322B6F631C467EAD001774AD /* TransferCode.m in Sources */,
+				322B6F5D1C467871001774AD /* ImageData.m in Sources */,
+				323E5CE31C9AAE5C001C47E0 /* StoryCharacter.m in Sources */,
 				322B6F1F1C4665E1001774AD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
