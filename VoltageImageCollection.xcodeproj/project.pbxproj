@@ -22,6 +22,7 @@
 		323E5CE31C9AAE5C001C47E0 /* StoryCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 323E5CE21C9AAE5C001C47E0 /* StoryCharacter.m */; };
 		323E5CEB1C9ACF67001C47E0 /* DataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 323E5CEA1C9ACF67001C47E0 /* DataHandler.m */; };
 		323E5CF01C9B851F001C47E0 /* ImageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 323E5CEF1C9B851F001C47E0 /* ImageListViewController.m */; };
+		5D5F2DF7F02AB4F934DC79B3 /* libPods-VoltageImageCollection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C3D90C75A40AAD3DD2F51D /* libPods-VoltageImageCollection.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CE267F1D63918073DFFD13D /* Pods-VoltageImageCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoltageImageCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VoltageImageCollection/Pods-VoltageImageCollection.debug.xcconfig"; sourceTree = "<group>"; };
+		29040D34635D66E55DE4315F /* Pods-VoltageImageCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoltageImageCollection.release.xcconfig"; path = "Pods/Target Support Files/Pods-VoltageImageCollection/Pods-VoltageImageCollection.release.xcconfig"; sourceTree = "<group>"; };
 		322B6F1A1C4665E1001774AD /* VoltageImageCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoltageImageCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		322B6F1E1C4665E1001774AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		322B6F201C4665E1001774AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -76,6 +79,7 @@
 		323E5CEA1C9ACF67001C47E0 /* DataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHandler.m; sourceTree = "<group>"; };
 		323E5CEE1C9B851F001C47E0 /* ImageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageListViewController.h; sourceTree = "<group>"; };
 		323E5CEF1C9B851F001C47E0 /* ImageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageListViewController.m; sourceTree = "<group>"; };
+		47C3D90C75A40AAD3DD2F51D /* libPods-VoltageImageCollection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VoltageImageCollection.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D5F2DF7F02AB4F934DC79B3 /* libPods-VoltageImageCollection.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +116,8 @@
 				322B6F391C4665E1001774AD /* VoltageImageCollectionTests */,
 				322B6F441C4665E1001774AD /* VoltageImageCollectionUITests */,
 				322B6F1B1C4665E1001774AD /* Products */,
+				3C29982C84DFAA92419701C3 /* Pods */,
+				EF28F16D3E7EE8118AF3D41B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,6 +214,23 @@
 			name = Tags;
 			sourceTree = "<group>";
 		};
+		3C29982C84DFAA92419701C3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CE267F1D63918073DFFD13D /* Pods-VoltageImageCollection.debug.xcconfig */,
+				29040D34635D66E55DE4315F /* Pods-VoltageImageCollection.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EF28F16D3E7EE8118AF3D41B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47C3D90C75A40AAD3DD2F51D /* libPods-VoltageImageCollection.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -214,10 +238,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 322B6F4A1C4665E1001774AD /* Build configuration list for PBXNativeTarget "VoltageImageCollection" */;
 			buildPhases = (
+				E46FEF97CE9DE2891E55B038 /* Check Pods Manifest.lock */,
 				322B6F161C4665E0001774AD /* Sources */,
 				322B6F171C4665E0001774AD /* Frameworks */,
 				322B6F181C4665E0001774AD /* Resources */,
 				322B6F561C466CB8001774AD /* ShellScript */,
+				899608CD86BB56B83A1F98C8 /* Embed Pods Frameworks */,
+				01C0F292FEC1BD19837FF78E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,6 +302,7 @@
 				TargetAttributes = {
 					322B6F191C4665E0001774AD = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = FQ9N2JXS7X;
 					};
 					322B6F351C4665E1001774AD = {
 						CreatedOnToolsVersion = 7.2;
@@ -333,6 +361,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		01C0F292FEC1BD19837FF78E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VoltageImageCollection/Pods-VoltageImageCollection-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		322B6F561C466CB8001774AD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,6 +388,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./buildScripts/xcode-git-version.sh";
+		};
+		899608CD86BB56B83A1F98C8 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VoltageImageCollection/Pods-VoltageImageCollection-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E46FEF97CE9DE2891E55B038 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -483,8 +556,10 @@
 		};
 		322B6F4B1C4665E1001774AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CE267F1D63918073DFFD13D /* Pods-VoltageImageCollection.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = VoltageImageCollection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.tamyapps.VoltageImageCollection;
@@ -494,8 +569,10 @@
 		};
 		322B6F4C1C4665E1001774AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29040D34635D66E55DE4315F /* Pods-VoltageImageCollection.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = VoltageImageCollection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.tamyapps.VoltageImageCollection;
