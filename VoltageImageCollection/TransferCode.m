@@ -25,13 +25,13 @@ const NSString *TRANSFERIDKEY = @"TransferID";
 -(void)setValuesFromDictionary:(NSDictionary*)dict {
     if (dict) {
         if ([[dict objectForKey:APPIDKEY]isKindOfClass:NSString.class]) {
-            self.appID = [dict objectForKey:APPIDKEY];
+            _appID = [dict objectForKey:APPIDKEY];
         }
         if ([[dict objectForKey:SUBIDKEY]isKindOfClass:NSString.class]) {
-            self.subID = [dict objectForKey:SUBIDKEY];
+            _subID = [dict objectForKey:SUBIDKEY];
         }
         if ([[dict objectForKey:TRANSFERIDKEY]isKindOfClass:NSString.class]) {
-            self.transferID = [dict objectForKey:TRANSFERIDKEY];
+            _transferID = [dict objectForKey:TRANSFERIDKEY];
         }
     }
 }
@@ -40,7 +40,7 @@ const NSString *TRANSFERIDKEY = @"TransferID";
     NSString *safeAppId = (self.appID) ? self.appID : @"";
     NSString *safeSubId = (self.subID) ? self.subID : @"";
     NSString *safeTransferId = (self.transferID) ? self.transferID : @"";
-    return @{safeAppId:APPIDKEY, safeSubId:SUBIDKEY, safeTransferId:TRANSFERIDKEY};
+    return @{APPIDKEY:safeAppId, SUBIDKEY:safeSubId, TRANSFERIDKEY:safeTransferId};
 }
 
 

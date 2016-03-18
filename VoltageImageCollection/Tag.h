@@ -14,6 +14,7 @@
 @property (readonly) NSString *tagID;
 @property (strong) NSString *displayName;
 
++(id)newTagWithName:(NSString*)tagName;
 -(NSMutableDictionary*)tagDictionary;
 
 @end

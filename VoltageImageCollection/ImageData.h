@@ -8,17 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import "DictionaryData.h"
+#import "Tag.h"
 
 //- res?
 //- file size?
 
 @interface ImageData : NSObject <DictionaryData>
 
-@property (weak) NSNumber *imageID;
-@property (weak) NSArray *tagIDs;
-@property (weak) NSNumber *isSynced;
+@property (strong) NSNumber *imageID;
+@property (strong) NSNumber *isSynced;
+@property (readonly) NSMutableSet *tagIDs;
 
 -(NSURL*)localURL;
 -(NSURL*)externalURL;
+
+-(void)addTag:(Tag*)newTag;
 
 @end

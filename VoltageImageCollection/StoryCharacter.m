@@ -10,6 +10,19 @@
 
 @implementation StoryCharacter
 
++(id)newCharacterWithFistName:(NSString*)firstName andLastName:(NSString*)lastName {
+    StoryCharacter *newCharacter = [[StoryCharacter alloc]init];
+    if (newCharacter) {
+        newCharacter.firstName = firstName;
+        newCharacter.lastName = lastName;
+    }
+    return newCharacter;
+}
+
+-(NSString*)displayName {
+    return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+}
+
 -(NSString*)tagID {
     NSMutableString *mutableTagId = [NSMutableString stringWithCapacity:self.firstName.length];
     if (self.firstName) {
@@ -39,24 +52,24 @@ const NSString *NICKNAMEKEY = @"Nickname";
     if (dict) {
         [super setValuesFromDictionary:dict];
         if ([[dict objectForKey:FIRSTNAMEKEY]isKindOfClass:NSString.class]) {
-            self.firstName = [dict objectForKey:FIRSTNAMEKEY];
+            _firstName = [dict objectForKey:FIRSTNAMEKEY];
         }
         if ([[dict objectForKey:LASTNAMEKEY]isKindOfClass:NSString.class]) {
-            self.lastName = [dict objectForKey:LASTNAMEKEY];
+            _lastName = [dict objectForKey:LASTNAMEKEY];
         }
         if ([[dict objectForKey:NICKNAMEKEY]isKindOfClass:NSString.class]) {
-            self.nickname = [dict objectForKey:NICKNAMEKEY];
+            _nickname = [dict objectForKey:NICKNAMEKEY];
         }
     }
 }
 
 -(NSDictionary*)dictionary {
-    NSMutableDictionary *tagDict = [self tagDictionary];
+    NSMutableDictionary *tagDict = [NSMutableDictionary dictionaryWithDictionary:[self tagDictionary]];
     NSString *safeFirstName = (self.firstName) ? self.firstName : @"";
     NSString *safeLastName = (self.lastName) ? self.lastName : @"";
     NSString *safeNickname = (self.nickname) ? self.nickname : @"";
     
-    NSDictionary *characterDic = @{safeFirstName:FIRSTNAMEKEY, safeLastName:LASTNAMEKEY, safeNickname:NICKNAMEKEY};
+    NSDictionary *characterDic = @{FIRSTNAMEKEY:safeFirstName, LASTNAMEKEY:safeLastName, NICKNAMEKEY:safeNickname};
     [tagDict addEntriesFromDictionary:characterDic];
     return tagDict;
 }
@@ -73,5 +86,11 @@ const NSString *NICKNAMEKEY = @"Nickname";
     }
     return NO;
 }
+
+//#pragma mark - Overwrite NSObject
+//
+//- (NSString *)description {
+//    return [[self dictionary]descriptionWithLocale:nil indent:1];
+//}
 
 @end

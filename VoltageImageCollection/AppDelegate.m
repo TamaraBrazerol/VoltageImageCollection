@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "DataHandler.h"
 #import "AppListViewController.h"
-#import "FilteredListViewController.h"
+#import "ImageListViewController.h"
 
 @interface AppDelegate ()
 @property UITabBarController *tabBarController;
@@ -21,7 +22,7 @@
 {
     /* Initialize view controllers */
     AppListViewController * viewController1 = [[AppListViewController alloc] init];
-    FilteredListViewController * viewController2 = [[FilteredListViewController alloc] init];
+    ImageListViewController * viewController2 = [[ImageListViewController alloc] init];
     
     
     /* Initialize navigation controllers */
@@ -44,6 +45,8 @@
     self.window.rootViewController = self.tabBarController;
     
     [self.window makeKeyAndVisible];
+    
+    [[DataHandler sharedInstance]startCloudSync];
     
     return YES;
 }

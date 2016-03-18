@@ -14,4 +14,6 @@
 @property (strong) NSString *lastName;
 @property (strong) NSString *nickname;
 
++(id)newCharacterWithFistName:(NSString*)firstName andLastName:(NSString*)lastName;
+
 @end

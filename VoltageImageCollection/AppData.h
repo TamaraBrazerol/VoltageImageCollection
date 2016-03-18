@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Tag.h"
 #import "TransferCode.h"
+#import "StoryCharacter.h"
 
 @interface AppData : Tag <DictionaryData>
 
@@ -17,7 +18,9 @@
 @property (strong) NSURL *appStoreLink;
 @property (strong) NSNumber *syncsWithSweetCaffe;
 @property (strong) TransferCode *transferCode;
+@property (readonly) NSMutableSet *storyCharacterIDs;
 
 +(id)newAppWithName:(NSString*)appName;
+-(void)addStoryCharacter:(StoryCharacter*)newCharacter;
 
 @end

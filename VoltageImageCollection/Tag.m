@@ -11,21 +11,30 @@
 
 @implementation Tag
 
++(id)newTagWithName:(NSString*)tagName {
+    Tag *newTag = [[Tag alloc]init];
+    if (newTag) {
+        newTag.displayName = tagName;
+    }
+    return newTag;
+}
+
 -(NSString*)tagID {
     NSMutableString *mutableTagId = [NSMutableString stringWithString:self.displayName];
     [mutableTagId stringByReplacingOccurrencesOfString:@" " withString:@""];
     return [NSString stringWithString:mutableTagId].uppercaseString;
 }
 
--(NSMutableDictionary*)tagDictionary {
+-(NSDictionary*)tagDictionary {
     NSString *safeDisplayName = (self.displayName) ? self.displayName : @"";
-    NSDictionary *tagDict = @{safeDisplayName:DISPLAYNAMEKEY};
-    return [NSMutableDictionary dictionaryWithDictionary:tagDict];
+    NSString *safeTagId = (self.tagID) ? self.tagID : @"";
+    return  @{DISPLAYNAMEKEY:safeDisplayName, TAGIDKEY:safeTagId};
 }
 
 #pragma mark - DictionaryData
 #pragma mark - Constants
 const NSString *DISPLAYNAMEKEY = @"DisplayName";
+const NSString *TAGIDKEY = @"TagID";
 
 +(id)createWithDictionary:(NSDictionary*)dict {
     Tag *tag = [[Tag alloc]init];
@@ -36,7 +45,7 @@ const NSString *DISPLAYNAMEKEY = @"DisplayName";
 -(void)setValuesFromDictionary:(NSDictionary*)dict {
     if (dict) {
         if ([[dict objectForKey:DISPLAYNAMEKEY]isKindOfClass:NSString.class]) {
-            self.displayName = [dict objectForKey:DISPLAYNAMEKEY];
+            _displayName = [dict objectForKey:DISPLAYNAMEKEY];
         }
     }
 }
@@ -46,10 +55,14 @@ const NSString *DISPLAYNAMEKEY = @"DisplayName";
 }
 
 #pragma mark - Overwrite NSObject
-
--(NSString*)description {
-    NSString *format = @"\ndisplayName: \t%@ \ntagID: \t%@";
-    return [NSString stringWithFormat:format, self.displayName, self.tagID];
+#if DEBUG
+- (BOOL) isNSDictionary__
+{
+    return YES;
+}
+#endif
+- (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level {
+    return [[self dictionary]descriptionWithLocale:locale indent:level];
 }
 
 @end

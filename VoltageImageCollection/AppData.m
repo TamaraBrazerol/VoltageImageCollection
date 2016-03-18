@@ -10,9 +10,6 @@
 
 @implementation AppData
 
-#pragma mark - create
-
-
 +(id)newAppWithName:(NSString*)appName {
     AppData *newAppData = [[AppData alloc]init];
     if (newAppData) {
@@ -22,15 +19,20 @@
     return newAppData;
 }
 
+-(id)init {
+    self = [super init];
+    if (self) {
+        _storyCharacterIDs = [NSMutableSet set];
+    }
+    return self;
+}
+
 -(NSString*)tagID {
     return [self abbreviationOfAppName].uppercaseString;
 }
 
-#pragma mark - Overwrite NSObject
-
--(NSString*)description {
-    NSString *format = @"\nappName: \t%@ \ndisplayName: \t%@ \ntagID: \t%@ \nappStoreLink: \t%@ \nsyncsWithSweetCaffe: \t%@ \ntransferCode: \t%@";
-    return [NSString stringWithFormat:format, self.appName, self.displayName, self.tagID, self.appStoreLink, self.syncsWithSweetCaffe, self.transferCode];
+-(void)addStoryCharacter:(StoryCharacter*)newCharacter {
+    [_storyCharacterIDs addObject:newCharacter.tagID];
 }
 
 #pragma mark - DictionaryData
@@ -39,6 +41,7 @@
 const NSString *APPNAMEKEY = @"AppName";
 const NSString *APPSTORELINKKEY = @"AppStoreLink";
 const NSString *SWEETCAFEKEY = @"SweetCafe";
+const NSString *STORYCHARACTERIDSKEY = @"StoryCharacterIDs";
 
 +(id)createWithDictionary:(NSDictionary*)dict {
     AppData *appData = [[AppData alloc]init];
@@ -50,25 +53,30 @@ const NSString *SWEETCAFEKEY = @"SweetCafe";
     if (dict) {
         [super setValuesFromDictionary:dict];
         if ([[dict objectForKey:APPNAMEKEY]isKindOfClass:NSString.class]) {
-            self.appName = [dict objectForKey:APPNAMEKEY];
+            _appName = [dict objectForKey:APPNAMEKEY];
         }
         if ([[dict objectForKey:APPSTORELINKKEY]isKindOfClass:NSString.class]) {
-            self.appStoreLink = [NSURL URLWithString:[dict objectForKey:APPSTORELINKKEY]];
+            _appStoreLink = [NSURL URLWithString:[dict objectForKey:APPSTORELINKKEY]];
         }
         if ([[dict objectForKey:SWEETCAFEKEY]isKindOfClass:NSNumber.class]) {
-            self.syncsWithSweetCaffe = [dict objectForKey:SWEETCAFEKEY];
+            _syncsWithSweetCaffe = [dict objectForKey:SWEETCAFEKEY];
         }
-        self.transferCode = [TransferCode createWithDictionary:dict];
+        if ([[dict objectForKey:STORYCHARACTERIDSKEY]isKindOfClass:NSArray.class]) {
+            NSArray *charactersAsArray =  [dict objectForKey:STORYCHARACTERIDSKEY];
+            _storyCharacterIDs = [NSMutableSet setWithArray:charactersAsArray];
+        }
+        _transferCode = [TransferCode createWithDictionary:dict];
     }
 }
 
 -(NSDictionary*)dictionary {
-    NSMutableDictionary *tagDict = [self tagDictionary];
+    NSMutableDictionary *tagDict = [NSMutableDictionary dictionaryWithDictionary:[self tagDictionary]];
     NSString *safeAppName = (self.appName) ? self.appName : @"";
     NSString *safeAppStoreLink = (self.appStoreLink) ? self.appStoreLink.absoluteString : @"";
     NSNumber *safeSweetCafe = (self.syncsWithSweetCaffe) ? self.syncsWithSweetCaffe : @0;
-    
-    NSDictionary *appDataDic = @{safeAppName:APPNAMEKEY, safeAppStoreLink:APPSTORELINKKEY, safeSweetCafe:SWEETCAFEKEY};
+    NSArray *safeCharacterArray = (self.storyCharacterIDs) ? [self.storyCharacterIDs allObjects] : @[];
+
+    NSDictionary *appDataDic = @{APPNAMEKEY:safeAppName, APPSTORELINKKEY:safeAppStoreLink, SWEETCAFEKEY:safeSweetCafe, STORYCHARACTERIDSKEY:safeCharacterArray};
     NSDictionary *transferCodeDict = [self.transferCode dictionary];
     
     [tagDict addEntriesFromDictionary:appDataDic];

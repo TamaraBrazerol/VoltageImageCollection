@@ -21,6 +21,7 @@
 		323E5CE01C9AA5E4001C47E0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 323E5CDF1C9AA5E4001C47E0 /* Default-568h@2x.png */; };
 		323E5CE31C9AAE5C001C47E0 /* StoryCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 323E5CE21C9AAE5C001C47E0 /* StoryCharacter.m */; };
 		323E5CEB1C9ACF67001C47E0 /* DataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 323E5CEA1C9ACF67001C47E0 /* DataHandler.m */; };
+		323E5CF01C9B851F001C47E0 /* ImageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 323E5CEF1C9B851F001C47E0 /* ImageListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		323E5CE61C9ABACE001C47E0 /* DictionaryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryData.h; sourceTree = "<group>"; };
 		323E5CE91C9ACF67001C47E0 /* DataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHandler.h; sourceTree = "<group>"; };
 		323E5CEA1C9ACF67001C47E0 /* DataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHandler.m; sourceTree = "<group>"; };
+		323E5CEE1C9B851F001C47E0 /* ImageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageListViewController.h; sourceTree = "<group>"; };
+		323E5CEF1C9B851F001C47E0 /* ImageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +184,8 @@
 		322B6F5A1C4677FD001774AD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				323E5CEE1C9B851F001C47E0 /* ImageListViewController.h */,
+				323E5CEF1C9B851F001C47E0 /* ImageListViewController.m */,
 				322B6F231C4665E1001774AD /* AppListViewController.h */,
 				322B6F241C4665E1001774AD /* AppListViewController.m */,
 				322B6F261C4665E1001774AD /* FilteredListViewController.h */,
@@ -358,6 +363,7 @@
 				322B6F5D1C467871001774AD /* ImageData.m in Sources */,
 				323E5CE31C9AAE5C001C47E0 /* StoryCharacter.m in Sources */,
 				322B6F1F1C4665E1001774AD /* main.m in Sources */,
+				323E5CF01C9B851F001C47E0 /* ImageListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

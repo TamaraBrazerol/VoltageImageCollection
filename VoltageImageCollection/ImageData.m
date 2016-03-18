@@ -10,11 +10,22 @@
 
 @implementation ImageData
 
+-(id)init {
+    self = [super init];
+    if (self) {
+        _tagIDs = [NSMutableSet set];
+    }
+    return self;
+}
+-(void)addTag:(Tag*)newTag {
+    [_tagIDs addObject:newTag.tagID];
+}
+
 #pragma mark - URLs
 
 -(NSURL*)localURL {
     //TODO
-    return nil;
+    return [[NSBundle mainBundle] URLForResource:@"test" withExtension:@"png"];
 }
 
 -(NSURL*)externalURL {
@@ -38,22 +49,37 @@ const NSString *ISSYNCEDKEY = @"IsSynced";
 -(void)setValuesFromDictionary:(NSDictionary*)dict {
     if (dict) {
         if ([[dict objectForKey:IMAGEIDKEY]isKindOfClass:NSNumber.class]) {
-            self.imageID = [dict objectForKey:IMAGEIDKEY];
-        }
-        if ([[dict objectForKey:TAGIDSKEY]isKindOfClass:NSArray.class]) {
-            self.tagIDs = [dict objectForKey:TAGIDSKEY];
+            _imageID = [dict objectForKey:IMAGEIDKEY];
         }
         if ([[dict objectForKey:ISSYNCEDKEY]isKindOfClass:NSNumber.class]) {
-            self.isSynced = [dict objectForKey:ISSYNCEDKEY];
+            _isSynced = [dict objectForKey:ISSYNCEDKEY];
         }
+        if ([[dict objectForKey:TAGIDSKEY]isKindOfClass:NSArray.class]) {
+            NSArray *tagIDsAsArray =  [dict objectForKey:TAGIDSKEY];
+            _tagIDs = [NSMutableSet setWithArray:tagIDsAsArray];
+        }
+
     }
 }
 
 -(NSDictionary*)dictionary {
     NSNumber *safeImageId = (self.imageID) ? self.imageID : @0;
-    NSArray *safeTagArray = (self.tagIDs) ? self.tagIDs : @[];
     NSNumber *safeIsSynced = (self.isSynced) ? self.isSynced : @0;
-    return @{safeImageId:IMAGEIDKEY, safeTagArray:TAGIDSKEY, safeIsSynced:ISSYNCEDKEY};
+    
+    NSArray *safeTagArray = (self.tagIDs) ? [self.tagIDs allObjects] : @[];
+
+    return @{IMAGEIDKEY:safeImageId, TAGIDSKEY:safeTagArray, ISSYNCEDKEY:safeIsSynced};
+}
+
+#pragma mark - Overwrite NSObject
+#if DEBUG
+- (BOOL) isNSDictionary__
+{
+    return YES;
+}
+#endif
+- (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level {
+    return [[self dictionary]descriptionWithLocale:locale indent:level];
 }
 
 @end

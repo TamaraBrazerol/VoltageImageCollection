@@ -1,26 +1,26 @@
 //
-//  AppListViewController.m
+//  ImageListViewController.m
 //  VoltageImageCollection
 //
 //  Created by Tamara Brazerol on 13/01/16.
 //  Copyright © 2016 Tamara Brazerol. All rights reserved.
 //
 
-#import "AppListViewController.h"
+#import "ImageListViewController.h"
 #import "DataHandler.h"
 
-@interface AppListViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ImageListViewController () <UITableViewDataSource, UITableViewDelegate>
 @property NSArray *tableData;
 @end
 
-@implementation AppListViewController
+@implementation ImageListViewController
 
 -(void)configureTableView {
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
 }
 
--(AppData*)appDataForIndexPath:(NSIndexPath *)indexPath {
+-(ImageData*)imageDataForIndexPath:(NSIndexPath *)indexPath {
    return [_tableData objectAtIndex:indexPath.row];
 }
 
@@ -28,10 +28,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"AppList";
+    self.title = @"ImageList";
     self.view.backgroundColor = [UIColor whiteColor];
     [self configureTableView];
-    _tableData = [[DataHandler sharedInstance]getAllAppDataTags];
+    _tableData = [[DataHandler sharedInstance]allImages];
     
     NSLog(@"%@", _tableData);
 }
@@ -45,9 +45,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *testCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    AppData *app = [self appDataForIndexPath:indexPath];
+    ImageData *imageData = [self imageDataForIndexPath:indexPath];
+    testCell.textLabel.text = [NSString stringWithFormat:@"IMAGE %@", imageData.imageID];
 
-    testCell.textLabel.text = app.displayName;
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[imageData localURL]]];
+    testCell.imageView.image = image;
     return testCell;
 }
 - (NSInteger)tableView:(UITableView *)tableView  numberOfRowsInSection:(NSInteger)section {
@@ -57,8 +59,8 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppData *app = [self appDataForIndexPath:indexPath];
-    NSLog(@"Pressed '%@'", app.displayName);
+    ImageData *imageData = [self imageDataForIndexPath:indexPath];
+    NSLog(@"Pressed '%@'", imageData.imageID);
 }
 
 @end

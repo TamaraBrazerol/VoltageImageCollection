@@ -17,5 +17,10 @@
 @property (readonly) NSMutableArray *allImages;
 @property (readonly) NSMutableArray *allTags;
 
++ (instancetype)sharedInstance;
+
+-(void)startCloudSync;
+-(NSArray*)getAllAppDataTags;
+-(NSArray*)getAllStoryCharacterTags;
 
 @end
