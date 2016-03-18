@@ -22,6 +22,7 @@
 		323E5CE31C9AAE5C001C47E0 /* StoryCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 323E5CE21C9AAE5C001C47E0 /* StoryCharacter.m */; };
 		323E5CEB1C9ACF67001C47E0 /* DataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 323E5CEA1C9ACF67001C47E0 /* DataHandler.m */; };
 		323E5CF01C9B851F001C47E0 /* ImageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 323E5CEF1C9B851F001C47E0 /* ImageListViewController.m */; };
+		328046481C9C3243009406E5 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 328046471C9C3243009406E5 /* Podfile */; };
 		5D5F2DF7F02AB4F934DC79B3 /* libPods-VoltageImageCollection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C3D90C75A40AAD3DD2F51D /* libPods-VoltageImageCollection.a */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +62,7 @@
 		322B6F411C4665E1001774AD /* VoltageImageCollectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoltageImageCollectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		322B6F451C4665E1001774AD /* VoltageImageCollectionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoltageImageCollectionUITests.m; sourceTree = "<group>"; };
 		322B6F471C4665E1001774AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		322B6F541C466C42001774AD /* buildScripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = buildScripts; path = ../buildScripts; sourceTree = "<group>"; };
+		322B6F541C466C42001774AD /* buildScripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = buildScripts; sourceTree = "<group>"; };
 		322B6F571C467549001774AD /* notes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = notes; sourceTree = "<group>"; };
 		322B6F5B1C467871001774AD /* ImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageData.h; sourceTree = "<group>"; };
 		322B6F5C1C467871001774AD /* ImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageData.m; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		323E5CEA1C9ACF67001C47E0 /* DataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHandler.m; sourceTree = "<group>"; };
 		323E5CEE1C9B851F001C47E0 /* ImageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageListViewController.h; sourceTree = "<group>"; };
 		323E5CEF1C9B851F001C47E0 /* ImageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageListViewController.m; sourceTree = "<group>"; };
+		328046471C9C3243009406E5 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 		47C3D90C75A40AAD3DD2F51D /* libPods-VoltageImageCollection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VoltageImageCollection.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				322B6F571C467549001774AD /* notes */,
+				322B6F541C466C42001774AD /* buildScripts */,
 				322B6F1C1C4665E1001774AD /* VoltageImageCollection */,
 				322B6F391C4665E1001774AD /* VoltageImageCollectionTests */,
 				322B6F441C4665E1001774AD /* VoltageImageCollectionUITests */,
@@ -137,10 +140,8 @@
 			children = (
 				322B6F201C4665E1001774AD /* AppDelegate.h */,
 				322B6F211C4665E1001774AD /* AppDelegate.m */,
-				322B6F2C1C4665E1001774AD /* Assets.xcassets */,
 				322B6F5A1C4677FD001774AD /* ViewControllers */,
 				322B6F591C4677E6001774AD /* Data */,
-				322B6F541C466C42001774AD /* buildScripts */,
 				322B6F1D1C4665E1001774AD /* Supporting Files */,
 			);
 			path = VoltageImageCollection;
@@ -149,6 +150,8 @@
 		322B6F1D1C4665E1001774AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				322B6F2C1C4665E1001774AD /* Assets.xcassets */,
+				328046471C9C3243009406E5 /* Podfile */,
 				323E5CDF1C9AA5E4001C47E0 /* Default-568h@2x.png */,
 				322B6F311C4665E1001774AD /* Info.plist */,
 				322B6F1E1C4665E1001774AD /* main.m */,
@@ -341,6 +344,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				328046481C9C3243009406E5 /* Podfile in Resources */,
 				322B6F2D1C4665E1001774AD /* Assets.xcassets in Resources */,
 				323E5CE01C9AA5E4001C47E0 /* Default-568h@2x.png in Resources */,
 			);

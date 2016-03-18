@@ -1,8 +1,8 @@
 
 Sync:
-iCloud (impossible without joining APL-Dev)
-Dropbox-API
-Buddy
+- iCloud (impossible without joining APL-Dev)
+- Dropbox-API
+- Buddy
 
 
 Views per Filter:
@@ -29,11 +29,11 @@ Data on Love Interest:
 - Name
 - Bithday
 - Job(s)
-- App(s)
 - Character traits as tags?
 
 Data on Apps:
 - Store Link
 - Restore Keys
 - Syncs with SweetCaffe
+- Characters
 

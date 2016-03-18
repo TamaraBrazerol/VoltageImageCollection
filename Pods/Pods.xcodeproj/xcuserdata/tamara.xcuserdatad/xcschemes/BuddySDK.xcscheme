@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '18AEE4D6AB1AF28D044F8C4D'
+               BlueprintIdentifier = 'AC0E4424DB7452ABE316F807'
                BlueprintName = 'BuddySDK'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libBuddySDK.a'>

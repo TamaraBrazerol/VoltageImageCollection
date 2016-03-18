@@ -3,4 +3,5 @@ target 'VoltageImageCollection' do
     pod 'BuddySDK'
     pod 'CocoaLumberjack'
     pod 'SVProgressHUD'
+    pod 'SDWebImage'
 end
