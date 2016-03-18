@@ -34,6 +34,12 @@
     _tableData = [[DataHandler sharedInstance]getAllAppDataTags];
     
     NSLog(@"%@", _tableData);
+        
+    DDLogVerbose(@"Verbose");
+    DDLogDebug(@"Debug");
+    DDLogInfo(@"Info");
+    DDLogWarn(@"Warn");
+    DDLogError(@"Error");
 }
 
 - (void)didReceiveMemoryWarning {
