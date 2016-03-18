@@ -8,13 +8,16 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.2.0):
     - CocoaLumberjack/Default
+  - SVProgressHUD (1.1.3)
 
 DEPENDENCIES:
   - BuddySDK
   - CocoaLumberjack
+  - SVProgressHUD
 
 SPEC CHECKSUMS:
   BuddySDK: 8e2f6abf34f24b5327f2b59418fe4d43d26997ec
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
 
 COCOAPODS: 0.39.0

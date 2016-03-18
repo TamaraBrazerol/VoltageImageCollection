@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0E5F748E81CB5A95E8AB3AEF'
-               BlueprintName = 'Pods-VoltageImageCollection'
+               BlueprintIdentifier = '39F19DBCC07FB8B4064799C1'
+               BlueprintName = 'SVProgressHUD'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-VoltageImageCollection.a'>
+               BuildableName = 'libSVProgressHUD.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
