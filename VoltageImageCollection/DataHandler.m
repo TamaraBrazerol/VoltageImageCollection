@@ -10,6 +10,10 @@
 #import "AppDelegate.h"
 #import <DropboxSDK/DropboxSDK.h>
 
+@interface DataHandler () <DBRestClientDelegate>
+@property DBRestClient *restClient;
+@property DBMetadata *loadedMetadata;
+@end
 
 @implementation DataHandler
 
@@ -49,42 +53,6 @@
     [image42 addTag:tag1];
 }
 
--(NSURL*)appRootURL{
-    NSArray *paths = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-    NSURL *documentsURL = [paths lastObject];
-    return documentsURL;
-}
-
--(NSURL*)importFolderURL {
-    return [NSURL URLWithString:@"import" relativeToURL:[self appRootURL]];
-}
-
--(NSURL*)dataFolderURL {
-    return [NSURL URLWithString:@"data" relativeToURL:[self appRootURL]];
-}
-
--(NSURL*)imagesFolderURL {
-    return [NSURL URLWithString:@"images" relativeToURL:[self appRootURL]];
-}
-
--(void)createDataFolders {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    DDLogDebug(@"%@", [self importFolderURL]);
-    DDLogDebug(@"%@", [self dataFolderURL]);
-    DDLogDebug(@"%@", [self imagesFolderURL]);
-
-    NSError *error = nil;
-    if (![fileManager fileExistsAtPath:[self importFolderURL].path]) {
-        [fileManager createDirectoryAtURL:[self importFolderURL] withIntermediateDirectories:YES attributes:nil error:&error];
-        if (!error) {
-            DDLogDebug(@"created %@", [self importFolderURL]);
-        } else {
-            DDLogError(@"%@", error.localizedDescription);
-        }
-    }
-    
-}
-
 #pragma mark - get data
 
 -(NSArray*)getAllAppDataTags {
@@ -108,13 +76,143 @@
     if (![[DBSession sharedSession] isLinked]) {
         [[DBSession sharedSession] linkFromController:[appDelegate currentViewController]];
     } else  {
-        //TODO
-        
+        self.restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+        self.restClient.delegate = self;
+        [self.restClient loadMetadata:@"/"];
+        // after metadata is loaded it checks if all the folders are there and updates them
     }
-//    if (_allTags.count == 0) {
-//        [self fillTestData];
-//    }
+    if (_allTags.count == 0) {
+        [self fillTestData];
+    }
 }
+
+-(void)updateFolders {
+    NSArray *subfoldersList = [self localFolderNames];
+    NSArray *cloudSubfolders = self.loadedMetadata.contents;
+    
+    NSMutableArray *foldersToCreate = [NSMutableArray arrayWithArray:subfoldersList];
+    
+    for (NSString *folderName in subfoldersList) {
+        for (DBMetadata *cloudFolder in cloudSubfolders) {
+            if ([folderName isEqualToString:cloudFolder.filename]) {
+                //folder exists in cloud
+                [self updateFolderWithName:folderName];
+                [foldersToCreate removeObject:folderName];
+                break;
+            }
+        }
+    }
+    for (NSString *newFolderName in foldersToCreate) {
+        [self.restClient createFolder:newFolderName];
+    }
+}
+
+-(void)updateFolderWithName:(NSString*)folderName {
+    if (folderName) {
+        if ([folderName isEqualToString:@"data"]) {
+            [self saveTags];
+            [self saveImagesData];
+            DDLogDebug(@"load/upload plists");
+            //TODO: load/upload plists to/from disk (and memory)
+        } else if ([folderName isEqualToString:@"images"]) {
+            //TODO: load tumbs? upload new images
+            DDLogDebug(@"load tumbs? upload new images");
+        } else if ([folderName isEqualToString:@"import"]) {
+            //TODO: load images and create ImageData entries
+            DDLogDebug(@"load images and create ImageData entries");
+        } else  {
+            DDLogWarn(@"new folder?");
+        }
+    }
+}
+
+#pragma mark - URLs
+
+-(NSURL*)appRootURL{
+    NSArray *paths = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *documentsURL = [paths lastObject];
+    return documentsURL;
+}
+
+-(NSURL*)importFolderURL {
+    return [[self appRootURL]URLByAppendingPathComponent:@"import" isDirectory:YES];
+}
+
+-(NSURL*)dataFolderURL {
+    return [[self appRootURL]URLByAppendingPathComponent:@"data" isDirectory:YES];
+}
+
+
+-(NSURL*)tagsDataURL {
+    return [[self dataFolderURL]URLByAppendingPathComponent:@"tags.plist" isDirectory:NO];
+}
+
+-(NSURL*)imagesDataURL {
+    return [[self dataFolderURL]URLByAppendingPathComponent:@"images.plist" isDirectory:NO];
+}
+
+-(NSURL*)imagesFolderURL {
+    return [[self appRootURL]URLByAppendingPathComponent:@"images" isDirectory:YES];
+}
+
+#pragma mark - local folders
+
+-(void)createDataFolders {
+    [self createFolderWithURL:[self importFolderURL]];
+    [self createFolderWithURL:[self dataFolderURL]];
+    [self createFolderWithURL:[self imagesFolderURL]];
+    NSError *error = nil;
+    NSArray *subfoldersList = [[NSFileManager defaultManager]subpathsOfDirectoryAtPath:[self appRootURL].path error:&error];
+    DDLogDebug(@"App Sub Folders:%@", subfoldersList);
+}
+
+- (void)createFolderWithURL:(NSURL *)folderURL {
+    NSError *error = nil;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:folderURL.path]) {
+        [[NSFileManager defaultManager] createDirectoryAtURL:folderURL withIntermediateDirectories:YES attributes:nil error:&error];
+        if (!error) {
+            DDLogInfo(@"created %@", folderURL);
+        } else {
+            DDLogError(@"%@", error.localizedDescription);
+        }
+    }
+}
+
+-(NSArray*)localFolderNames {
+    NSError *error = nil;
+    NSArray *subfoldersList = [[NSFileManager defaultManager]subpathsOfDirectoryAtPath:[self appRootURL].path error:&error];
+    return subfoldersList;
+}
+
+#pragma mark - DBRestClientDelegate
+
+- (void)restClient:(DBRestClient *)client loadedMetadata:(DBMetadata *)metadata {
+    if (metadata.isDirectory && [metadata.path isEqualToString:@"/"]) {
+        self.loadedMetadata = metadata;
+        [self updateFolders];
+    }
+    else {
+        DDLogWarn(@"metadata.path: %@", metadata.path);
+    }
+}
+
+- (void)restClient:(DBRestClient *)client loadMetadataFailedWithError:(NSError *)error {
+    DDLogError(@"Error loading metadata: %@", error);
+}
+
+- (void)restClient:(DBRestClient*)client createdFolder:(DBMetadata*)folder {
+    DDLogInfo(@"created folder '%@' in cloud", folder.path);
+    [self updateFolderWithName:folder.path];
+}
+
+- (void)restClient:(DBRestClient*)client createFolderFailedWithError:(NSError*)error {
+    if (error.code == 403) {
+        DDLogDebug(@"folder already exists in cloud");
+    } else {
+        DDLogError(@"%@", [error userInfo]);
+    }
+}
+
 
 #pragma mark - sharedInstance
 + (instancetype)sharedInstance
@@ -130,12 +228,9 @@
 }
 
 #pragma mark - R/W Images
-+(NSString*)imagesKey {
-    return @"ImagesList";
-}
 
 -(void)loadImagesData {
-    NSArray *imageDicts = [[NSUserDefaults standardUserDefaults]objectForKey:[DataHandler imagesKey]];
+    NSArray *imageDicts = [NSArray arrayWithContentsOfURL:[self imagesDataURL]];
     if (!_allImages) {
         _allImages = [NSMutableArray arrayWithCapacity:imageDicts.count];
     }
@@ -150,18 +245,13 @@
         [imageDataAsDicts addObject:[image dictionary]];
     }
     NSLog(@"imageDataAsDicts: %@", imageDataAsDicts);
-    [[NSUserDefaults standardUserDefaults]setObject:imageDataAsDicts forKey:[DataHandler imagesKey]];
-    [[NSUserDefaults standardUserDefaults]synchronize];
+    [imageDataAsDicts writeToURL:[self imagesDataURL] atomically:YES];
 }
 
 #pragma mark - R/W Tags
-+(NSString*)tagsKey {
-    return @"TagsList";
-}
 
 -(void)loadTags {
-    NSArray *tagDicts = [[NSUserDefaults standardUserDefaults]objectForKey:[DataHandler tagsKey]];
-
+    NSArray *tagDicts = [NSArray arrayWithContentsOfURL:[self tagsDataURL]];
     if (!_allTags) {
         _allTags = [NSMutableArray arrayWithCapacity:tagDicts.count];
     }
@@ -175,7 +265,6 @@
             
         } else {
             [_allTags addObject:[Tag createWithDictionary:tagDataDict]];
-
         }
     }
 }
@@ -186,8 +275,7 @@
         [tagsAsDicts addObject:[tag dictionary]];
     }
     NSLog(@"tagsAsDicts: %@", tagsAsDicts);
-    [[NSUserDefaults standardUserDefaults]setObject:tagsAsDicts forKey:[DataHandler tagsKey]];
-    [[NSUserDefaults standardUserDefaults]synchronize];
+    [tagsAsDicts writeToURL:[self tagsDataURL] atomically:YES];
 }
 
 @end
