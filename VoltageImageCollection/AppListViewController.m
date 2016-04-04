@@ -34,7 +34,7 @@
     _tableData = [[DataHandler sharedInstance]getAllAppDataTags];
     
     NSLog(@"%@", _tableData);
-        
+    
     DDLogVerbose(@"Verbose");
     DDLogDebug(@"Debug");
     DDLogInfo(@"Info");

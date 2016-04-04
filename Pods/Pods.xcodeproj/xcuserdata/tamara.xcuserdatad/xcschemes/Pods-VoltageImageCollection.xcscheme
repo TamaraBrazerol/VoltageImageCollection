@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '76D8278163707E0ED7E58683'
+               BlueprintIdentifier = '648F31C34C0C698BA146CF6F'
                BlueprintName = 'Pods-VoltageImageCollection'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-VoltageImageCollection.a'>

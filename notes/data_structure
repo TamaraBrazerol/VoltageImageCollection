@@ -1,0 +1,35 @@
+Saved in P.List
+
+Tags (tags.plist)
+class Tag
+	tagID
+	displayName
+	- subclass App
+		appName
+		appStoreLink
+		syncsWithSweetCaffe
+		transferCode
+		storyCharacterIDs
+	- subclass Character
+		firstName
+		lastName
+		nickname
+
+
+Images (images.plist)
+class ImageData
+	imageID
+	isSynced
+	tagIDs
+
+-------------------
+
+
+Sync with Dropbox
+- import (folder)
+- data (folder)
+	tags.plist
+	images.plist
+- images (folder)
+	(imageId).JPG
+

@@ -7,6 +7,9 @@
 //
 
 #import "DataHandler.h"
+#import "AppDelegate.h"
+#import <DropboxSDK/DropboxSDK.h>
+
 
 @implementation DataHandler
 
@@ -46,6 +49,41 @@
     [image42 addTag:tag1];
 }
 
+-(NSURL*)appRootURL{
+    NSArray *paths = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *documentsURL = [paths lastObject];
+    return documentsURL;
+}
+
+-(NSURL*)importFolderURL {
+    return [NSURL URLWithString:@"import" relativeToURL:[self appRootURL]];
+}
+
+-(NSURL*)dataFolderURL {
+    return [NSURL URLWithString:@"data" relativeToURL:[self appRootURL]];
+}
+
+-(NSURL*)imagesFolderURL {
+    return [NSURL URLWithString:@"images" relativeToURL:[self appRootURL]];
+}
+
+-(void)createDataFolders {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    DDLogDebug(@"%@", [self importFolderURL]);
+    DDLogDebug(@"%@", [self dataFolderURL]);
+    DDLogDebug(@"%@", [self imagesFolderURL]);
+
+    NSError *error = nil;
+    if (![fileManager fileExistsAtPath:[self importFolderURL].path]) {
+        [fileManager createDirectoryAtURL:[self importFolderURL] withIntermediateDirectories:YES attributes:nil error:&error];
+        if (!error) {
+            DDLogDebug(@"created %@", [self importFolderURL]);
+        } else {
+            DDLogError(@"%@", error.localizedDescription);
+        }
+    }
+    
+}
 
 #pragma mark - get data
 
@@ -64,10 +102,18 @@
 #pragma mark - cloud sync
 
 -(void)startCloudSync {
-    //TODO
-    if (_allTags.count == 0) {
-        [self fillTestData];
+    [self createDataFolders];
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    if (![[DBSession sharedSession] isLinked]) {
+        [[DBSession sharedSession] linkFromController:[appDelegate currentViewController]];
+    } else  {
+        //TODO
+        
     }
+//    if (_allTags.count == 0) {
+//        [self fillTestData];
+//    }
 }
 
 #pragma mark - sharedInstance

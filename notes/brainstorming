@@ -1,14 +1,16 @@
 
 Sync:
 - iCloud (impossible without joining APL-Dev)
-- Dropbox-API
-- Buddy
+- Dropbox-API (https://www.dropbox.com/developers)
+- Buddy (https://buddy.com)
 
 
 Views per Filter:
-- App
-- Love Interest
-- Other Tags
+- Inbox (untagged)
+- Filtered Image Table
+(- App)
+(- Love Interest)
+(- Other Tags)
 
 
 All Filters:
@@ -36,4 +38,23 @@ Data on Apps:
 - Restore Keys
 - Syncs with SweetCaffe
 - Characters
+
+
+
+UICollectionVC
+-> presents a list of DisplayableObjects
+
+DisplayableObject
+UIImage *cellImage
+NSString *cellTitle
+NSPredicate *resultsPredicate
+Id originalObject
+
+Tags > DisplayableObject
+
+Table Headers
+-(info box [app infos | char infos])
+-(subtags)
+-apps
+-character
 

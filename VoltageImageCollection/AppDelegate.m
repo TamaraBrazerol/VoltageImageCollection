@@ -11,6 +11,8 @@
 #import "AppListViewController.h"
 #import "ImageListViewController.h"
 
+#import <DropboxSDK/DropboxSDK.h>
+
 @interface AppDelegate ()
 @property UITabBarController *tabBarController;
 @end
@@ -32,13 +34,36 @@
     return @[navigationController1, navigationController2];
 }
 
+
+-(UIViewController*)currentViewController {
+    UIViewController *currentController = self.tabBarController.selectedViewController;
+    if (!currentController) {
+        currentController = [self.tabBarController.viewControllers firstObject];
+    }
+    return currentController;
+}
+
 #pragma mark - UIApplicationDelegate
+
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
+  sourceApplication:(NSString *)source annotation:(id)annotation {
+    if ([[DBSession sharedSession] handleOpenURL:url]) {
+        if ([[DBSession sharedSession] isLinked]) {
+            DDLogInfo(@"App linked successfully!");
+            // At this point you can start making API calls
+        }
+        return YES;
+    }
+    DDLogWarn(@"Refused to open :%@", url.absoluteString);
+    return NO;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     [DDLog addLogger:[DDTTYLogger sharedInstance]]; // TTY = Xcode console
-    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+    [[DDTTYLogger sharedInstance] setColorsEnabled:NO]; //seems broken for now
 
     /* Initialize window view */
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -48,6 +73,12 @@
     self.window.rootViewController = self.tabBarController;
     
     [self.window makeKeyAndVisible];
+    
+    DBSession *dbSession = [[DBSession alloc]
+                            initWithAppKey:@"4in6uekdfhlyo0e"
+                            appSecret:@"cczetiyya3xwdvu"
+                            root:kDBRootAppFolder];
+    [DBSession setSharedSession:dbSession];
     
     [[DataHandler sharedInstance]startCloudSync];
     

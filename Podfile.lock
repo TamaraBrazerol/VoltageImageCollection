@@ -1,5 +1,4 @@
 PODS:
-  - BuddySDK (3.0.5)
   - CocoaLumberjack (2.2.0):
     - CocoaLumberjack/Default (= 2.2.0)
     - CocoaLumberjack/Extensions (= 2.2.0)
@@ -14,13 +13,11 @@ PODS:
   - SVProgressHUD (1.1.3)
 
 DEPENDENCIES:
-  - BuddySDK
   - CocoaLumberjack
   - SDWebImage
   - SVProgressHUD
 
 SPEC CHECKSUMS:
-  BuddySDK: 8e2f6abf34f24b5327f2b59418fe4d43d26997ec
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
